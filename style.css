@@ -1,64 +1,49 @@
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-}
-
-header {
+/* Styles for the navigation menu */
+nav {
 	background-color: #333;
-	color: #fff;
-	padding: 10px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-nav ul {
-	list-style: none;
+	color: white;
+	overflow: hidden;
+  }
+  
+  nav a {
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+  nav a:hover {
+	background-color: #ddd;
+	color: black;
+  }
+  
+  nav a.active {
+	background-color: #4CAF50;
+	color: white;
+  }
+  
+  /* Styles for the card list */
+  ul {
+	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	display: flex;
-}
-
-nav li {
+  }
+  
+  li {
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid black;
+  }
+  
+  img {
+	height: 100px;
 	margin-right: 10px;
-}
-
-nav a {
-	color: #fff;
-	text-decoration: none;
-	padding: 5px;
-	border-radius: 5px;
-}
-
-nav a:hover {
-	background-color: #444;
-}
-
-main {
-	max-width: 800px;
-	margin: 20px auto;
-	padding: 0 20px;
-}
-
-section {
-	margin-bottom: 20px;
-}
-
-h2 {
-	margin-top: 0;
-}
-
-form {
-	display: flex;
-	flex-direction: column;
-}
-
-label {
-	margin-bottom: 5px;
-}
-
-input, select {
-	margin-bottom: 10px;
-	padding: 5px;
-	border-radius: 5px
+  }
+  
+  /* Styles for the "Add Card" section */
+  #addCardSection {
+	display: none;
+  }
+  

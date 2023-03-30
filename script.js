@@ -79,6 +79,7 @@ function showAddCard() {
   document.getElementById("addCardLink").classList.add("active");
   document.getElementById("myCardsLink").classList.remove("active");
 }
+
 // Show the "My Cards" section
 function showMyCards() {
 	// Hide the "Add Card" section if it's currently visible
