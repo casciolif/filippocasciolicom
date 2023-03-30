@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Trading Card Collection</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>My Trading Card Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
-  <header>
-    <h1>My Trading Card Collection</h1>
-  </header>
-
-  <main>
-    <div class="cards">
-      <!-- The cards will be dynamically added here using JavaScript -->
+    <div class="container">
+        <h1>My Trading Card Collection</h1>
+        <div id="card-list"></div>
+        <button id="add-card-btn">Add Card</button>
     </div>
 
-    <button id="add-card-btn">Add New Card</button>
-  </main>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="app.js"></script>
+    <div id="add-card-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add a New Card</h2>
+            <form id="add-card-form">
+                <label for="card-name">Card Name:</label>
+                <input type="text" id="card-name" name="card-name" required>
+                <label for="card-image">Card Image:</label>
+                <input type="file" id="card-image" name="card-image" accept=".jpg" required>
+                <button type="submit">Add Card</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
+

@@ -1,34 +1,42 @@
 <?php
-// Database connection details
-$host = 'ls-649eefb945f8d96a2e7d739b9354002782c67afb.caln0ufxvryf.ap-southeast-2.rds.amazonaws.com';
-$username = 'dbmasteruser';
-$password = 'dbpass1!';
-$database = 'dbmaster';
+//Connect to the database
+$conn = new mysqli("localhost", "username", "password", "database_name");
 
-// Connect to MySQL database
-$conn = mysqli_connect($host, $username, $password, $database);
-
-// Check for errors
-if (mysqli_connect_errno()) {
-  die('Failed to connect to MySQL: ' . mysqli_connect_error());
+//Check for errors
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Query the database for cards
-$query = "SELECT * FROM cards";
-$result = mysqli_query($conn, $query);
+//Query to get all cards from the database
+$sql = "SELECT id, name, image_url FROM cards ORDER BY name ASC";
+$result = $conn->query($sql);
 
-// Create an array to store the cards
+//Check for errors
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
+
+//Create an array to hold the cards
 $cards = array();
 
-// Loop through the result set and add each card to the array
-while ($row = mysqli_fetch_assoc($result)) {
-  $cards[] = $row;
+//Loop through the results and add each card to the array
+while ($row = $result->fetch_assoc()) {
+    $cards[] = array(
+        'id' => $row['id'],
+        'name' => $row['name'],
+        'image_url' => $row['image_url']
+    );
 }
 
-// Return the array of cards as JSON
-header('Content-Type: application/json');
-echo json_encode($cards);
+//Convert the array to JSON format
+$json = json_encode($cards);
 
-// Close the database connection
-mysqli_close($conn);
+//Set the content type header to JSON
+header('Content-Type: application/json');
+
+//Output the JSON data
+echo $json;
+
+//Close the database connection
+$conn->close();
 ?>

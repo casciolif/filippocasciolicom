@@ -1,46 +1,150 @@
-/* Style for the card images */
-.card-image {
-	width: 200px;
+/* Global styles */
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	background-color: #f8f8f8;
+  }
+  
+  .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+  }
+  
+  h1 {
+	font-size: 36px;
+	font-weight: 700;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 20px;
+  }
+  
+  h2 {
+	font-size: 28px;
+	font-weight: 700;
+	margin-top: 50px;
+	margin-bottom: 20px;
+  }
+  
+  p {
+	font-size: 16px;
+	margin-top: 0;
+	margin-bottom: 20px;
+  }
+  
+  a {
+	color: #0077cc;
+  }
+  
+  /* Card styles */
+  
+  .card {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	margin-bottom: 20px;
+  }
+  
+  .card__img {
 	height: 300px;
-	margin: 10px;
-	border: 1px solid black;
+	object-fit: cover;
+	width: 100%;
   }
   
-  /* Style for the add card form */
-  #add-card-form {
-	margin-top: 20px;
-	padding: 10px;
-	border: 1px solid black;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  .card__content {
+	padding: 20px;
   }
   
-  #add-card-form input {
+  .card__title {
+	font-size: 24px;
+	font-weight: 700;
+	margin-top: 0;
 	margin-bottom: 10px;
   }
   
-  #add-card-form button {
-	margin-top: 10px;
+  .card__description {
+	font-size: 16px;
+	margin-top: 0;
+	margin-bottom: 20px;
   }
   
-  /* Style for the success and error messages */
-  #message {
-	margin-top: 20px;
+  /* Form styles */
+  
+  .form__group {
+	margin-bottom: 20px;
+  }
+  
+  .form__label {
+	display: block;
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 5px;
+  }
+  
+  .form__input {
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	font-size: 16px;
 	padding: 10px;
-	text-align: center;
-	font-weight: bold;
+	width: 100%;
   }
   
-  .success {
-	background-color: #DFF2BF;
-	border: 1px solid #4F8A10;
-	color: #4F8A10;
+  .form__button {
+	background-color: #0077cc;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 10px 20px;
+	transition: all 0.3s ease;
   }
   
-  .error {
-	background-color: #FFBABA;
-	border: 1px solid #D8000C;
-	color: #D8000C;
+  .form__button:hover {
+	background-color: #005c9d;
   }
+  
+  /* Modal styles */
+  
+  .modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal__content {
+	background-color: #fff;
+	margin: 10% auto;
+	padding: 20px;
+	border-radius: 5px;
+	max-width: 600px;
+  }
+  
+  .modal__close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: 700;
+  }
+  
+  .modal__close:hover,
+  .modal__close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
   
