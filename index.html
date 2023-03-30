@@ -1,74 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Trading Card Collection</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Minimalistic Website</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+		}
+		
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav li {
+			display: inline-block;
+			margin-right: 10px;
+		}
+		
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			padding: 5px 10px;
+		}
+		
+		nav a:hover {
+			background-color: #fff;
+			color: #333;
+		}
+		
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+	</style>
 </head>
 <body>
-	<script src="script.js"></script>
-	<header>
-		<h1>My Trading Card Collection</h1>
-		<nav>
-			<ul>
-				<li><a href="#" id="addCardLink">Add Card</a></li>
-				<li><a href="#" id="myCardsLink">My Cards</a></li>
-				<li><a href="#" id="logoutLink">Logout</a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<main>
-		<div id="pageContent">
-			<!-- Add card section -->
-			<div id="addCardSection" style="display: none;">
-				<section id="addCardSection">
-					<h2>Add a Trading Card</h2>
-					<form>
-						<label for="name">Name:</label>
-						<input type="text" id="name" name="name" required>
-	
-						<label for="rarity">Rarity:</label>
-						<select id="rarity" name="rarity" required>
-							<option value="">Select a Rarity</option>
-							<option value="common">Common</option>
-							<option value="uncommon">Uncommon</option>
-							<option value="rare">Rare</option>
-							<option value="legendary">Legendary</option>
-						</select>
-	
-						<label for="imgUrl">Image URL:</label>
-						<input type="url" id="imgUrl" name="imgUrl" required>
-	
-						<button type="button" onclick="addCard()">Add Card</button>
-					</form>
-				</section>
-			</div>
-			
-			<div id="myCardsSection" style="display: none;">
-				<section id="myCardsSection">
-					<h2>My Trading Cards</h2>
-					<div id="cardList"></div>
-				</section>
-			</div>
-		</div>
-
-	</main>
-
-	<div id="loginModal" class="modal">
-		<div class="modal-content">
-			<h2>Login</h2>
-			<form>
-				<label for="username">Username:</label>
-				<input type="text" id="username" name="username" required>
-
-				<label for="password">Password:</label>
-				<input type="password" id="password" name="password" required>
-
-				<button type="button" onclick="login()">Login</button>
-			</form>
-		</div>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+	<div class="container">
+		<h1>Welcome to my minimalistic website!</h1>
+		<p>This is a very basic website with a menu and some content.</p>
 	</div>
-
-	
 </body>
 </html>
