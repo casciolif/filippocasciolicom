@@ -1,22 +1,40 @@
 let cardList = [];
 
+// Add the card to the list
 function addCard() {
-    // Get the form inputs
-    let name = document.getElementById("name").value;
-    let rarity = document.getElementById("rarity").value;
-    let imgUrl = document.getElementById("imgUrl").value;
-
-    // Create a new card object
-    let card = {
-        name: name,
-        rarity: rarity,
-        imgUrl: imgUrl
-    };
-
-    // Add the card to the list and update the display
-    cardList.push(card);
-    updateCardList();
-}
+	// Get the form inputs
+	let name = document.getElementById("nameInput").value;
+	let image = document.getElementById("imageInput").value;
+	let rarity = document.getElementById("rarityInput").value;
+  
+	// Create a new list item
+	let listItem = document.createElement("li");
+  
+	// Create a new image element and set its source to the input value
+	let cardImage = document.createElement("img");
+	cardImage.src = image;
+  
+	// Create a new span element and set its text content to the input value
+	let cardName = document.createElement("span");
+	cardName.textContent = name;
+  
+	// Create a new span element and set its text content to the input value
+	let cardRarity = document.createElement("span");
+	cardRarity.textContent = rarity;
+  
+	// Append the image, name, and rarity elements to the list item
+	listItem.appendChild(cardImage);
+	listItem.appendChild(cardName);
+	listItem.appendChild(cardRarity);
+  
+	// Append the list item to the card list
+	document.getElementById("cardList").appendChild(listItem);
+  
+	// Clear the form inputs
+	document.getElementById("nameInput").value = "";
+	document.getElementById("imageInput").value = "";
+	document.getElementById("rarityInput").value = "";
+  }
 
 function updateCardList() {
     // Get the card list container element
@@ -46,24 +64,33 @@ function updateCardList() {
     });
 }
 
+// Add an event listener to the "Add Card" link
+document.getElementById("addCardLink").addEventListener("click", showAddCard);
+
+// Show the "Add Card" section
 function showAddCard() {
-    // Hide the my cards section
-    document.getElementById("myCardsSection").style.display = "none";
+  // Hide the "My Cards" section if it's currently visible
+  document.getElementById("myCardsSection").style.display = "none";
 
-    // Show the add card section
-    document.getElementById("addCardSection").style.display = "block";
+  // Show the "Add Card" section
+  document.getElementById("addCardSection").style.display = "block";
+
+  // Update the active link in the navigation
+  document.getElementById("addCardLink").classList.add("active");
+  document.getElementById("myCardsLink").classList.remove("active");
 }
-
+// Show the "My Cards" section
 function showMyCards() {
-    // Hide the add card section
-    document.getElementById("addCardSection").style.display = "none";
-
-    // Show the my cards section
-    document.getElementById("myCardsSection").style.display = "block";
-
-    // Update the card list display
-    updateCardList();
-}
+	// Hide the "Add Card" section if it's currently visible
+	document.getElementById("addCardSection").style.display = "none";
+  
+	// Show the "My Cards" section
+	document.getElementById("myCardsSection").style.display = "block";
+  
+	// Update the active link in the navigation
+	document.getElementById("myCardsLink").classList.add("active");
+	document.getElementById("addCardLink").classList.remove("active");
+  }
 
 function login() {
     // Get the form inputs
