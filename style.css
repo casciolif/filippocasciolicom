@@ -1,0 +1,46 @@
+/* Style for the card images */
+.card-image {
+	width: 200px;
+	height: 300px;
+	margin: 10px;
+	border: 1px solid black;
+  }
+  
+  /* Style for the add card form */
+  #add-card-form {
+	margin-top: 20px;
+	padding: 10px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  #add-card-form input {
+	margin-bottom: 10px;
+  }
+  
+  #add-card-form button {
+	margin-top: 10px;
+  }
+  
+  /* Style for the success and error messages */
+  #message {
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+  }
+  
+  .success {
+	background-color: #DFF2BF;
+	border: 1px solid #4F8A10;
+	color: #4F8A10;
+  }
+  
+  .error {
+	background-color: #FFBABA;
+	border: 1px solid #D8000C;
+	color: #D8000C;
+  }
+  
