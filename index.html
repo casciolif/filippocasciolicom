@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Trading Card Collection</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>My Trading Card Collection</h1>
+		<nav>
+			<ul>
+				<li><a href="#" id="addCardLink">Add Card</a></li>
+				<li><a href="#" id="myCardsLink">My Cards</a></li>
+				<li><a href="#" id="logoutLink">Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="addCardSection">
+			<h2>Add a Trading Card</h2>
+			<form>
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" required>
+
+				<label for="rarity">Rarity:</label>
+				<select id="rarity" name="rarity" required>
+					<option value="">Select a Rarity</option>
+					<option value="common">Common</option>
+					<option value="uncommon">Uncommon</option>
+					<option value="rare">Rare</option>
+					<option value="legendary">Legendary</option>
+				</select>
+
+				<label for="imgUrl">Image URL:</label>
+				<input type="url" id="imgUrl" name="imgUrl" required>
+
+				<button type="button" onclick="addCard()">Add Card</button>
+			</form>
+		</section>
+
+		<section id="myCardsSection">
+			<h2>My Trading Cards</h2>
+			<div id="cardList"></div>
+		</section>
+	</main>
+
+	<div id="loginModal" class="modal">
+		<div class="modal-content">
+			<h2>Login</h2>
+			<form>
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required>
+
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required>
+
+				<button type="button" onclick="login()">Login</button>
+			</form>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
