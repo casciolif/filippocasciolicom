@@ -17,32 +17,40 @@
 	</header>
 
 	<main>
-		<section id="addCardSection">
-			<h2>Add a Trading Card</h2>
-			<form>
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" required>
+		<div id="pageContent">
+			<!-- Add card section -->
+			<div id="addCardSection" style="display: none;">
+				<section id="addCardSection">
+					<h2>Add a Trading Card</h2>
+					<form>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" required>
+	
+						<label for="rarity">Rarity:</label>
+						<select id="rarity" name="rarity" required>
+							<option value="">Select a Rarity</option>
+							<option value="common">Common</option>
+							<option value="uncommon">Uncommon</option>
+							<option value="rare">Rare</option>
+							<option value="legendary">Legendary</option>
+						</select>
+	
+						<label for="imgUrl">Image URL:</label>
+						<input type="url" id="imgUrl" name="imgUrl" required>
+	
+						<button type="button" onclick="addCard()">Add Card</button>
+					</form>
+				</section>
+			</div>
+			
+			<div id="myCardsSection" style="display: none;">
+				<section id="myCardsSection">
+					<h2>My Trading Cards</h2>
+					<div id="cardList"></div>
+				</section>
+			</div>
+		</div>
 
-				<label for="rarity">Rarity:</label>
-				<select id="rarity" name="rarity" required>
-					<option value="">Select a Rarity</option>
-					<option value="common">Common</option>
-					<option value="uncommon">Uncommon</option>
-					<option value="rare">Rare</option>
-					<option value="legendary">Legendary</option>
-				</select>
-
-				<label for="imgUrl">Image URL:</label>
-				<input type="url" id="imgUrl" name="imgUrl" required>
-
-				<button type="button" onclick="addCard()">Add Card</button>
-			</form>
-		</section>
-
-		<section id="myCardsSection">
-			<h2>My Trading Cards</h2>
-			<div id="cardList"></div>
-		</section>
 	</main>
 
 	<div id="loginModal" class="modal">

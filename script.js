@@ -85,6 +85,9 @@ function login() {
 
         // Show the logout link
         document.getElementById("logoutLink").style.display = "block";
+
+        // Show the add card section by default
+        showAddCard();
     }
 }
 
@@ -98,12 +101,13 @@ function logout() {
 
     // Show the login modal
     document.getElementById("loginModal").style.display = "block";
+
+    // Hide the add card and my cards sections
+    document.getElementById("addCardSection").style.display = "none";
+    document.getElementById("myCardsSection").style.display = "none";
 }
 
 // Hide the add card and my cards links and logout link initially
 document.getElementById("addCardLink").style.display = "none";
 document.getElementById("myCardsLink").style.display = "none";
 document.getElementById("logoutLink").style.display = "none";
-
-// Add event listeners for the links
-document.getElementById("addCardLink").addEventListener
