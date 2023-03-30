@@ -7,7 +7,7 @@
 			margin: 0;
 			padding: 0;
 			background-color: #f5f5f5;
-			font-family: Helvetica, Arial, sans-serif;
+			font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 		}
 		
 		nav {
@@ -17,6 +17,11 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
 		}
 		
 		nav ul {
@@ -39,17 +44,39 @@
 			letter-spacing: 1px;
 			padding: 10px;
 			transition: background-color 0.3s ease-in-out;
+			display: inline-block;
+			position: relative;
+		}
+		
+		nav a::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			background-image: radial-gradient(circle at center, #fff, rgba(255,255,255,0) 75%);
+			background-position: center;
+			background-size: 200% 200%;
+			z-index: -1;
 		}
 		
 		nav a:hover {
-			background-color: #fff;
+			background-color: transparent;
 			color: #000;
+		}
+		
+		nav a:hover::before {
+			opacity: 1;
 		}
 		
 		.container {
 			max-width: 800px;
-			margin: 0 auto;
-			padding: 20px;
+			margin: 80px auto 0;
+			padding: 40px;
 			background-color: #fff;
 			box-shadow: 0 0 20px rgba(0,0,0,0.1);
 			border-radius: 5px;
@@ -57,14 +84,16 @@
 		}
 		
 		h1 {
-			font-size: 36px;
+			font-size: 48px;
 			margin-bottom: 20px;
 			color: #000;
 			text-transform: uppercase;
+			letter-spacing: -1px;
+			font-weight: 600;
 		}
 		
 		p {
-			font-size: 20px;
+			font-size: 24px;
 			color: #666;
 			line-height: 1.5;
 		}
