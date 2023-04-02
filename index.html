@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Trading Card Collection</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="app.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trading Card Collection</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>My Trading Card Collection</h1>
-        <div id="card-list"></div>
-        <button id="add-card-btn">Add Card</button>
-    </div>
+	<h1>My Trading Card Collection</h1>
 
-    <div id="add-card-modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add a New Card</h2>
-            <form id="add-card-form">
-                <label for="card-name">Card Name:</label>
-                <input type="text" id="card-name" name="card-name" required>
-                <label for="card-image">Card Image:</label>
-                <input type="file" id="card-image" name="card-image" accept=".jpg" required>
-                <button type="submit">Add Card</button>
-            </form>
-        </div>
-    </div>
+	<button id="add-card-btn">Add a New Card</button>
+
+	<div id="cards-container">
+		<!-- Trading cards will be displayed here -->
+	</div>
+
+	<!-- Modal form to add a new card -->
+	<div id="add-card-modal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Add a New Card</h2>
+			<form id="add-card-form" enctype="multipart/form-data">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name">
+
+				<label for="image">Image:</label>
+				<input type="file" id="image" name="image">
+
+				<button type="submit">Add Card</button>
+			</form>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
-
