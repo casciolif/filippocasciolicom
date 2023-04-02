@@ -1,38 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Trading Card Collection</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<h1>My Trading Card Collection</h1>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Cards</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Smart Cards</h1>
+    </header>
+    <main>
+      <div class="add-card">
+        <button id="add-card-button">Add a New Card</button>
+        <div id="add-card-form">
+          <form id="card-form">
+            <label for="name">Card Name:</label>
+            <input type="text" id="name" name="name" required /><br />
 
-	<button id="add-card-btn">Add a New Card</button>
+            <label for="image_file">Image File:</label>
+            <input type="file" id="image_file" name="image_file" required /><br />
 
-	<div id="card-container">
-		<!-- Trading cards will be displayed here -->
-	</div>
+            <button type="submit">Add Card</button>
+          </form>
+        </div>
+      </div>
 
-	<!-- Modal form to add a new card -->
-	<div id="add-card-modal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<h2>Add a New Card</h2>
-			<form id="add-card-form" enctype="multipart/form-data">
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name">
+      <div class="cards-container">
+      </div>
+    </main>
 
-				<label for="image">Image:</label>
-				<input type="file" id="image" name="image">
-
-				<button type="submit">Add Card</button>
-			</form>
-		</div>
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="app.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

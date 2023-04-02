@@ -1,66 +1,56 @@
-// Get the cards from the server
-function getCards() {
-    fetch('get-cards.php')
-      .then(response => response.json())
-      .then(cards => {
-        // Remove existing cards from the list
-        const cardList = document.getElementById('card-list');
-        cardList.innerHTML = '';
-  
-        // Add each card to the list
-        cards.forEach(card => {
-          const cardItem = document.createElement('div');
-          cardItem.classList.add('card-item');
-  
-          const cardImage = document.createElement('img');
-          cardImage.classList.add('card-image');
-          cardImage.src = card.image_url;
-  
-          const cardName = document.createElement('p');
-          cardName.classList.add('card-name');
-          cardName.textContent = card.name;
-  
-          cardItem.appendChild(cardImage);
-          cardItem.appendChild(cardName);
-          cardList.appendChild(cardItem);
-        });
-      })
-      .catch(error => console.error(error));
-  }
-  
-  // Handle form submission
-  function handleFormSubmit(event) {
-    event.preventDefault();
-  
-    // Get the form data
-    const formData = new FormData(event.target);
-  
-    // Create a new card object
-    const card = {
-      name: formData.get('name'),
-      image_file: formData.get('image_file')
-    };
-  
-    // Submit the card data to the server
-    fetch('add-card.php', {
-      method: 'POST',
-      body: JSON.stringify(card),
-      headers: {
-        'Content-Type': 'application/json'
+$(document).ready(function() {
+
+    // Load the cards from the database
+    $.get("get-cards.php", function(data) {
+      // Loop through the cards and add them to the page
+      for (var i = 0; i < data.length; i++) {
+        addCard(data[i]);
       }
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
-        // Clear the form and update the card list
-        event.target.reset();
-        getCards();
-      })
-      .catch(error => console.error(error));
-  }
+    });
   
-  // Add event listeners
-  document.addEventListener('DOMContentLoaded', getCards);
-  const form = document.getElementById('add-card-form');
-  form.addEventListener('submit', handleFormSubmit);
+    // Handle the add card form submission
+    $("#add-card-form").submit(function(event) {
+      event.preventDefault();
+      var formData = new FormData(this);
+      $.ajax({
+        url: "add-card.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          addCard(data);
+          $("#add-card-form")[0].reset();
+          $("#add-card-modal").modal("hide");
+        }
+      });
+    });
+  
+    // Function to add a card to the page
+    function addCard(card) {
+      var html = `
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="${card.image_url}" alt="${card.name}">
+            <div class="card-body">
+              <h5 class="card-title">${card.name}</h5>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#view-card-modal" data-name="${card.name}" data-image="${card.image_url}">View</button>
+            </div>
+          </div>
+        </div>
+      `;
+      $("#cards-container").append(html);
+    }
+  
+    // Handle the view card modal show event
+    $("#view-card-modal").on("show.bs.modal", function(event) {
+      var button = $(event.relatedTarget);
+      var name = button.data("name");
+      var image = button.data("image");
+      var modal = $(this);
+      modal.find(".modal-title").text(name);
+      modal.find(".modal-body img").attr("src", image);
+    });
+  
+  });
   
