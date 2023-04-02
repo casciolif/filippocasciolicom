@@ -4,7 +4,7 @@
 include('db.php');
 
 //Query to get all cards from the database
-$sql = "SELECT id, card_name FROM cards ORDER BY name ASC";
+$sql = "SELECT ID, card_name FROM cards ORDER BY name ASC";
 $result = $conn->query($sql);
 
 //Check for errors
@@ -18,8 +18,8 @@ $cards = array();
 //Loop through the results and add each card to the array
 while ($row = $result->fetch_assoc()) {
     $cards[] = array(
-        'id' => $row['id'],
-        'name' => $row['name']
+        'ID' => $row['ID'],
+        'card_name' => $row['card_name']
     );
 }
 
