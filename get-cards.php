@@ -4,7 +4,7 @@
 include('db.php');
 
 //Query to get all cards from the database
-$sql = "SELECT id, name FROM cards ORDER BY name ASC";
+$sql = "SELECT id, card_name FROM cards ORDER BY name ASC";
 $result = $conn->query($sql);
 
 //Check for errors
