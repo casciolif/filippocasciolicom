@@ -1,6 +1,12 @@
 <?php
-//Connect to the database
-$conn = new mysqli("ls-649eefb945f8d96a2e7d739b9354002782c67afb.caln0ufxvryf.ap-southeast-2.rds.amazonaws.com", "dbmasteruser", "dbpass1!", "dbmaster");
+//Database connection variables
+$servername = "ls-649eefb945f8d96a2e7d739b9354002782c67afb.caln0ufxvryf.ap-southeast-2.rds.amazonaws.com";
+$username = "dbmasteruser";
+$password = "dbpass1!";
+$dbname = "dbmaster";
+
+//Create a connection to the database
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 //Check for errors
 if ($conn->connect_error) {
